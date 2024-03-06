@@ -1,4 +1,7 @@
-public abstract class LightingDevice {
+public abstract class LightingDevice
+    implements ElectricDevice {
+
+
     public static final double MAX_BRIGHTNESS = 1D;
     public static final double MIN_BRIGHTNESS = 0D;
 
@@ -8,6 +11,21 @@ public abstract class LightingDevice {
     public LightingDevice(int power) {
         this.power = power;
     }
+    @Override
+    public boolean isSwitchedOn() {
+        return brightness > 0;
+    }
+
+    @Override
+    public void switchOn() {
+        setBrightness(MAX_BRIGHTNESS);
+    }
+
+    @Override
+    public void switchOff() {
+        setBrightness(MIN_BRIGHTNESS);
+    }
+
 
     public void setBrightness(double level) {
         if (level < MIN_BRIGHTNESS) {
@@ -28,6 +46,5 @@ public abstract class LightingDevice {
         setBrightness(change);
     }
 
-    public abstract double getEnergyConsumption();
 
 }
