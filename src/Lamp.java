@@ -10,4 +10,7 @@ public class Lamp extends LightingDevice {
         return power * brightness;
     }
 
+
+
+
 }

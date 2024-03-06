@@ -1,5 +1,5 @@
 public abstract class LightingDevice
-    implements ElectricDevice {
+    implements ElectricDevice, Comparable {
 
 
     public static final double MAX_BRIGHTNESS = 1D;
@@ -44,6 +44,17 @@ public abstract class LightingDevice
     public void changeBrightness(double rate) {
         double change = brightness + brightness * rate;
         setBrightness(change);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        LightingDevice device = (LightingDevice) o;
+        return Integer.compare(power, device.power);
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() + "with power: " + power;
     }
 
 
