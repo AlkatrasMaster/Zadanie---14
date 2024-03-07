@@ -37,6 +37,10 @@ public abstract class LightingDevice
         }
     }
 
+    public int getPower() {
+        return power;
+    }
+
     public void getBrightness(double brightness) {
         this.brightness = brightness;
     }

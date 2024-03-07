@@ -9,9 +9,14 @@ public class Chandelier extends LightingDevice {
     private final int lampCount;
 
 
+
+
+
+
     public Chandelier(int power, int lampCount) {
         super(power);
         this.lampCount = lampCount;
+
     }
 
     @Override
@@ -20,6 +25,19 @@ public class Chandelier extends LightingDevice {
         int stepCount = (int) Math.round(level / step);
         brightness = stepCount * step;
         super.setBrightness(stepCount * step);
+        class Controller {
+            public Controller() {
+
+            }
+            public void reset() {
+                //some logic
+            }
+        }
+        if (brightness == 0) {
+            Controller controller = new Controller();
+            controller.reset();
+        }
+
 
     }
 
